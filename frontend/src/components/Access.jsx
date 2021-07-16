@@ -30,22 +30,22 @@ const Access = () => {
                         <div class="modal-body">
                             {
                                 (stateCover==="Login")?
-                                    <div className="d-flex justify-content-end">
-                                        <button type="button" className="btn btn-primary border rounded-0 border-bottom" onClick={handleCover}> Sign Up → </button>
-                                    </div>
-                                    :
                                     <div className="d-flex justify-content-start">
                                         <button type="button" className="btn btn-primary border rounded-0 border-bottom" onClick={handleCover}> ← Login</button>
+                                    </div>
+                                    :
+                                    <div className="d-flex justify-content-end">
+                                        <button type="button" className="btn btn-primary border rounded-0 border-bottom" onClick={handleCover}> Sign Up → </button>
                                     </div>
                             }
                             {
                                 (stateCover === "Login")?
                                     <div class="p-2">
-                                        <Login></Login>         
+                                        <SignUp></SignUp>       
                                     </div>
                                     :
                                     <div class="p-2">
-                                        <SignUp></SignUp>
+                                        <Login></Login>
                                     </div>
                             }
                             
