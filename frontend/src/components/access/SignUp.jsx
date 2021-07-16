@@ -1,8 +1,11 @@
 import React from 'react'
 
-const SignIn = () => {
+const SignUp = () => {
     return (
         <div>
+            <div>
+                <h3>Poke-Shop</h3>
+            </div>
             <form className="row g-3">
                 <div className="form-floating mb-3 col-md-6">
                     <input type="text" className="form-control" id="InputName" placeholder="John" required/>
@@ -28,4 +31,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignUp
