@@ -1,7 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
-import Access from './components/Access';
 import VistaProducto from './components/VistaProducto';
 // import { Link, Route, Switch } from "react-router-dom";
 import Navbar from  './components/Navbar'
