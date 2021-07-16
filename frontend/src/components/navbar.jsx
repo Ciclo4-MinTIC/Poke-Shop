@@ -58,6 +58,17 @@ const navbar = () => {
                   ¿Quienes somos?
                 </a>
               </li>
+              <li class="nav-item">
+                {/* Agregar este boton al navbar para abrir el modal de acceso */}
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#accessModal"
+                >
+                  Acceso
+                </button>
+              </li>
             </ul>
           </div>
         </div>
