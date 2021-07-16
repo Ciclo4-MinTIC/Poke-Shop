@@ -10,6 +10,11 @@
   z-index: -1;
 }
 
+.banner img{
+  height: auto;
+  width: 100%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
