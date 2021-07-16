@@ -1,4 +1,5 @@
 import React from "react";
+import Access from './Access';
 
 const navbar = () => {
   return (
@@ -73,6 +74,7 @@ const navbar = () => {
           </div>
         </div>
       </nav>
+      <Access></Access>
     </div>
   );
 };
