@@ -1,3 +1,6 @@
+
+import React from "react";
+import Catalogo from './components/Catalogo'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -14,6 +17,7 @@ function App() {
       <Home></Home>
       <VistaProducto></VistaProducto>
     </div>
+    <Catalogo/>
   );
 }
 
