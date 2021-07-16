@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import VistaProducto from './components/VistaProducto';
 // import { Link, Route, Switch } from "react-router-dom";
-import Navbar from  './components/Navbar'
+import Navbar from  './components/Navbar.jsx'
 import Home from './components/Home.jsx';
 
 
