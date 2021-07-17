@@ -3,15 +3,6 @@ import React from "react";
 const VistaProducto = () => {
   return (
     <div>
-      {/* <!-- Button trigger modal --> */}
-      <button
-        type="button"
-        class="btn btn-outline-warning btn-sm"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Visualización del producto
-      </button>
 
       {/* Modal */}
       <div

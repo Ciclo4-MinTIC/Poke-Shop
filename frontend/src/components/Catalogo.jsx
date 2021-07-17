@@ -8,7 +8,7 @@ const Catalogo = () => {
     <div>
       <p>Catalogo Pokemon</p>
       <div class="card">
-        <img src={Luxray} class="card-img-top" alt="..."></img>
+        <img src={Umbreon} class="card-img-top" alt="..."></img>
         <div class="card-body">
           <h5 class="card-title">Umbreon</h5>
           <p class="card-text">
@@ -16,11 +16,17 @@ const Catalogo = () => {
             lanza a los ojos de sus enemigos. En las noches de luna llena, o
             cuando se exalta, le empiezan a brillar los anillos de color dorado.
           </p>
-          <a href="/" class="btn btn-primary">
-            Go somewhere
-          </a>
+          {/* <!-- Button trigger modal --> */}
+          <button
+            type="button"
+            class="btn btn-outline-warning btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Visualización del producto
+          </button>
         </div>
-        <img src={Pikachu} class="card-img-top" alt="..."></img>
+        <img src={Luxray} class="card-img-top" alt="..."></img>
         <div class="card-body">
           <h5 class="card-title">Luxray</h5>
           <p class="card-text">
@@ -30,11 +36,17 @@ const Catalogo = () => {
             electricidad que consume al usar su capacidad para ver a través de
             objetos.
           </p>
-          <a href="/" class="btn btn-primary">
-            Go somewhere
-          </a>
+          {/* <!-- Button trigger modal --> */}
+          <button
+            type="button"
+            class="btn btn-outline-warning btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Visualización del producto
+          </button>
         </div>
-        <img src={Umbreon} class="card-img-top" alt="..."></img>
+        <img src={Pikachu} class="card-img-top" alt="..."></img>
         <div class="card-body">
           <h5 class="card-title">Pikachu</h5>
           <p class="card-text">
@@ -43,9 +55,15 @@ const Catalogo = () => {
             miembros de esta especie se saludan entre sí uniendo sus colas y
             transmitiéndose corriente eléctrica.
           </p>
-          <a href="/" class="btn btn-primary">
-            Go somewhere
-          </a>
+          {/* <!-- Button trigger modal --> */}
+          <button
+            type="button"
+            class="btn btn-outline-warning btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Visualización del producto
+          </button>
         </div>
       </div>
     </div>

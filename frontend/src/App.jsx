@@ -14,13 +14,12 @@ function App() {
       <Navbar></Navbar>
       <Router>
         <Switch>
-          <Route path="/catalogo">
-            <Catalogo />
-          </Route>
-
-          <Route path="/">
+          <Route exact path="/">
             <Home></Home>
           </Route>
+          <Route path="/catalogo">
+            <Catalogo />
+          </Route>          
         </Switch>
       </Router>
 
