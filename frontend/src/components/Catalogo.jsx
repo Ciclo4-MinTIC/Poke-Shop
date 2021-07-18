@@ -6,8 +6,8 @@ import Umbreon from "../assets/Umbreon.jpg";
 const Catalogo = () => {
   return (
     <div>
-      <p>Catalogo Pokemon</p>
-      <div class="card">
+      
+      <div class="card my-4 borde-azulaguamarina">
         <img src={Umbreon} class="card-img-top" alt="..."></img>
         <div class="card-body">
           <h5 class="card-title">Umbreon</h5>
