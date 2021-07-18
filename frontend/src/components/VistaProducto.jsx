@@ -6,14 +6,14 @@ const VistaProducto = () => {
 
       {/* Modal */}
       <div
-        class="modal fade"
+        class="modal fade "
         id="exampleModal"
         tabindex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-lg">
-          <div class="modal-content">
+          <div class="modal-content bg-primary">
             <div class="modal-header">
               <h3 class="modal-title strong" id="exampleModalLabel">
                 Mewtwo

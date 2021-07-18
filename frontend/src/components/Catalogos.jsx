@@ -8,13 +8,13 @@ function Catalogos() {
                 <div className="col-md-4">
                     <Catalogo/>
                 </div>
-                <div className="col-md-4">
+                <div className="col-4">
                     <Catalogo/>
                 </div>
                 <div className="col-md-4">
                     <Catalogo/>
                 </div>
-
+               
             </div>
            
         </div>

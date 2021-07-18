@@ -1,5 +1,5 @@
 import React from "react";
-import Catalogo from "./components/Catalogo";
+import Catalogos from "./components/Catalogos";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
@@ -18,7 +18,7 @@ function App() {
             <Home></Home>
           </Route>
           <Route path="/catalogo">
-            <Catalogo />
+            <Catalogos />
           </Route>          
         </Switch>
       </Router>
