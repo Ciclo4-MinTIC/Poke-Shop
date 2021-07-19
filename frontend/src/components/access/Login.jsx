@@ -13,7 +13,7 @@ const Login = () => {
                     <input type="password" className="form-control" id="InputPassword" placeholder="Password" required/>
                 </div>
                 <div>
-                    <button className="btn btn-primary">Ingresar</button>
+                    <button className="btn btn-outline-warning ">Ingresar</button>
                 </div>            
             </form>
         </div>

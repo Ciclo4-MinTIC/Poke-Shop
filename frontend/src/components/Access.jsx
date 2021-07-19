@@ -31,11 +31,11 @@ const Access = () => {
                             {
                                 (stateCover==="Login")?
                                     <div className="d-flex justify-content-start">
-                                        <button type="button" className="btn btn-primary border rounded-0 border-bottom" onClick={handleCover}> ← Login</button>
+                                        <button type="button" className="btn btn-outline-warning" onClick={handleCover}> ← Login</button>
                                     </div>
                                     :
                                     <div className="d-flex justify-content-end">
-                                        <button type="button" className="btn btn-primary border rounded-0 border-bottom" onClick={handleCover}> Sign Up → </button>
+                                        <button type="button" className="btn btn-outline-warning " onClick={handleCover}> Sign Up → </button>
                                     </div>
                             }
                             {

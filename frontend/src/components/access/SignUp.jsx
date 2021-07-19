@@ -21,7 +21,7 @@ const SignUp = () => {
                     <input type="password" className="form-control" id="InputPassword" placeholder="Password" required/>
                 </div>
                 <div>
-                    <button className="btn btn-primary">Registrarme</button>
+                    <button className="btn btn-outline-warning ">Registrarme</button>
                 </div>
             </form>
         </div>
