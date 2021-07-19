@@ -47,7 +47,7 @@
 .App
 {
   background: rgb(red, #2C65B4, #00DBCA);
-  height: 100vh;
+  height: 100 vh;
   
   background: linear-gradient(90deg, rgba(9,9,121,1) 23%, rgba(0,212,255,1) 53%, rgba(0,16,36,1) 81%);
   

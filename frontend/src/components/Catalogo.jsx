@@ -1,6 +1,6 @@
 import React from "react";
 import './catalogos.css'
-
+import PropTypes from 'prop-types'
 
 
 
@@ -15,10 +15,9 @@ const Catalogo = ({title, imageSource, text}) => {
         <div class="card-body text-light">
           <h5 class="card-title">{title}</h5>
           <p class="card-text">
-          
-            Cuando se enfurece, secreta un sudor venenoso por los poros que
-            lanza a los ojos de sus enemigos. En las noches de luna llena, o
-            cuando se exalta, le empiezan a brillar los anillos de color dorado.
+            {
+              text? text: 'Por favor agregue una descripción'
+            }
           </p>
           <a href="#!" className="btn btn-outline-secondary border-0">
           </a>
@@ -37,5 +36,12 @@ const Catalogo = ({title, imageSource, text}) => {
     </div>
   );
 };
+
+Catalogo.propTypes =
+{
+  title: PropTypes.string.isRequired,
+  imageSource: PropTypes.string,
+  text: PropTypes.string
+}
 
 export default Catalogo;
