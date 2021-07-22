@@ -54,7 +54,7 @@ const catalogos =
         id: 3,
         title: 'Pikachu',
         image: Pikachu,
-        text: 'Cuanto más potente es la energía eléctrica que genera este Pokémon, más suaves y elásticas se vuelven las bolsas de sus mejillas. Los miembros de esta especie se saludan entre sí uniendo sus colas y transmitiéndose corriente eléctrica.'
+        text: 'Cuanto más potente es la energía eléctrica que genera este Pokémon, más suaves y elásticas se vuelven las bolsas de sus mejillas.'
        
        
     },
@@ -97,9 +97,9 @@ const catalogos =
     },
     {
         id: 9,
-        title: 'Bulbasaur',
-        image: Bulbasaur,
-        text:'Este Pokémon nace con una semilla en el lomo, que brota con el paso del tiempo.'
+        title: 'Gengar',
+        image: Gengar,
+        text:'Las noches de luna llena, a este Pokémon le gusta imitar las sombras de la gente y burlarse de sus miedos.'
        
        
     },
@@ -153,9 +153,9 @@ const catalogos =
     },
     {
         id: 16,
-        title: 'Kyogre',
-        image: Kyogre,
-        text:'Kyogre se sirve de la energía de la naturaleza para realizar su Regresión Primigenia y recobrar su apariencia primitiva. Con tal poder, puede desencadenar tempestades para expandir los océanos.'
+        title: 'Entei',
+        image: Entei,
+        text:'Entei contiene el fulgor del magma en su interior. Se cree que este Pokémon nació de la erupción de un volcán. Escupe numerosas ráfagas de fuego que devoran y reducen a cenizas todo lo que tocan.'
        
        
     },
