@@ -5,15 +5,15 @@ const Login = () => {
         <div>
             <form>
                 <div className="form-group mb-3">
-                    <label for="InputEmail" className="mb-2">Email address</label>
-                    <input type="email" className="form-control inputsm" id="InputEmail" placeholder="name@example.com" required/>
+                    <label for="InputEmail" className="mb-2 text-light">Email address</label>
+                    <input type="email" className="form-control bg-transparent text-light" id="InputEmail" placeholder="name@example.com" required/>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="InputPassword">Password</label>
-                    <input type="password" className="form-control" id="InputPassword" placeholder="Password" required/>
+                    <label for="InputPassword" className="mb-2 text-light">Password</label>
+                    <input type="password" className="form-control bg-transparent text-light" id="InputPassword" placeholder="Password" required/>
                 </div>
                 <div>
-                    <button className="btn btn-primary">Ingresar</button>
+                    <button className="btn btn-outline-warning ">Ingresar</button>
                 </div>            
             </form>
         </div>
