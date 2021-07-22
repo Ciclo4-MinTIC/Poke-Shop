@@ -39,10 +39,12 @@
   background-color: #D6332B
   ;
 }
-.borde-azulaguamarina
+
+.borde-gris
 {
-  border: 3px solid #00DBCA;
+  border: 3px solid grey;
 }
+
 
 .App
 {
