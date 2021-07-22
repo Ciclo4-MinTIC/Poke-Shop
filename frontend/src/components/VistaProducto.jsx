@@ -13,7 +13,7 @@ const VistaProducto = () => {
         aria-hidden="true"
       >
         <div class="modal-dialog modal-lg">
-          <div class="modal-content bg-primary">
+          <div class="modal-content ">
             <div class="modal-header">
               <h3 class="modal-title strong" id="exampleModalLabel">
                 Mewtwo
@@ -31,7 +31,7 @@ const VistaProducto = () => {
                   <div class="col-md-4">
                       
                       <img
-                      src="https://infinite-loops.fandom.com/wiki/Mewtwo_(Pok%C3%A9mon_Anime)?file=Mewtwo.jpg"
+                      src="../assets/Mewtwo.jpg"
                       
                       alt="Mewtwo"
                     />

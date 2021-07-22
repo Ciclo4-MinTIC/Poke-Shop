@@ -35,7 +35,7 @@ const navbar = () => {
             </ul>
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-warning text-light"
                 data-bs-toggle="modal"
                 data-bs-target="#accessModal"
               >
