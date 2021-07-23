@@ -1,6 +1,7 @@
 import React from 'react'
 
 const SignUp = () => {
+    
     return (
         <div>
             <form className="row g-3">
