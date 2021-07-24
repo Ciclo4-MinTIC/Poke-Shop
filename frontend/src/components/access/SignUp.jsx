@@ -14,11 +14,11 @@ const SignUp = () => {
             name: name,
             lastName: lastName,
             email: email,
-            password: password,
+            password: password, 
         }
 
         if(newUser.name !== "" && newUser.lastName !== "" && newUser.email !== "" && newUser.password !== "" ){
-            axios.post('http://localhost:3000/signup/validate', newUser)
+            axios.post('http://localhost:4000/signup/validate', newUser)
             .then(res => console.log(res))
             .catch(e => console.log("No sirvio"))
         }else{

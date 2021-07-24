@@ -13,7 +13,7 @@ const Login = () => {
 
         console.log(user.email)
         console.log(user.password)
-        axios.post('http://localhost:3000/login/validate', user)
+        axios.post('http://localhost:4000/login/validate', user)
         .then(res => console.log(res))
         .catch(e => console.log("No sirvio"))
     }
