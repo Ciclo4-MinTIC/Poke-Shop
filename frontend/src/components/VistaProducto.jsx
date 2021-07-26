@@ -14,27 +14,27 @@ const VistaProducto = () => {
       >
         <div class="modal-dialog modal-lg">
           <div class="modal-content ">
-            <div class="modal-header">
-              <h3 class="modal-title strong" id="exampleModalLabel">
+            <div class="modal-header bg-dark ">
+              <h3 class="modal-title text-light " id="exampleModalLabel">
                 Mewtwo
               </h3>
               <button
                 type="button"
-                class="btn-close"
+                class="btn-close "
                 data-bs-dismiss="modal"
-                aria-label="Close"
+                aria-label="Close "
               ></button>
             </div>
             <div class="modal-body">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-4">
-                      
-                      <img
+                  <div class="col-md-4 borde-gris">                  
+                    <img
                       src="../assets/Mewtwo.jpg"
                       
-                      alt="Mewtwo"
-                    />
+                      alt=""
+                    ></img>                   
+
                   </div>
                   <div class="col-md-8 ">
                     
@@ -75,7 +75,7 @@ const VistaProducto = () => {
             <div class="modal-footer">
               <button
                 type="button"
-                class="btn btn-warning"
+                class="btn btn-outline-warning"
                 data-bs-dismiss="modal"
               >
                 Cerrar
