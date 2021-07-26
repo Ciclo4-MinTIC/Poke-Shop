@@ -28,16 +28,32 @@ router.route('/validate').post((req, res) => {
 //         res.json(data)
 //     }
 //   })
-    
+    //let existe = false
+    let respuesta={
+        "validacionCorreo": true,
+        "validacionContrasena":true,
+        "registroUsuario":false
+    }
+
     users.forEach(user => {
         if(user.email === req.body.email){
             console.log("ya existe")
+            //existe=true
+            respuesta.validacionCorreo=false
+
+
+
         }
     })
 
     if (req.body.password.length < 8 ){
+        respuesta.validacionContrasena=false
         console.log("contraseña invalida")
     }
+   if (respuesta.validacionCorreo && respuesta.validacionContrasena){
+       respuesta.registroUsuario=true
+   }
+   res.json(respuesta)
 })
 
 // // Get Single Student

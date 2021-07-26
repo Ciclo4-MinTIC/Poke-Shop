@@ -32,11 +32,14 @@ router.route('/validate').post((req, res) => {
 //     }
 //   })
     if (req.body.email === user.email && req.body.password === user.password ){
+       
         res.json({
             'estado': 'ok'
+            
         })
     }
     else {
+
         res.json({
             "estado": "okn't"
         })
