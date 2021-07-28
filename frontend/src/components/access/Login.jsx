@@ -16,7 +16,7 @@ const Login = () => {
 
         console.log(user.email)
         console.log(user.password)
-        axios.post('http://localhost:4000/acceso/login', user)
+        axios.post('http://localhost:4000/acceso/login' , user)
         .then(res => console.log(res))
         .catch(e => console.log("No sirvio"))
     }

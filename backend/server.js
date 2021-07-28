@@ -8,7 +8,7 @@ let dbConfig = require('./database/database.js');
 const catalogoRoute = require('./router/catalogo')
 const accessRoute = require('./router/acceso.js')
 
-// Connecting mongoDB Database
+// Connecting mongoDB Database 
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.db, {
   useNewUrlParser: true
