@@ -6,8 +6,7 @@ let dbConfig = require('./database/database.js');
 
 // Express Route
 const catalogoRoute = require('./router/catalogo')
-const singupRoute = require('./router/signup.js')
-const loginRoute = require("./router/login")
+const accessRoute = require('./router/acceso.js')
 
 // Connecting mongoDB Database
 // mongoose.Promise = global.Promise;
@@ -29,9 +28,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use('/catalogo', catalogoRoute)
-app.use('/signup', singupRoute)
-app.use('/login', loginRoute)
-
+app.use('/acceso', accessRoute)
 
 // PORT
 const port = process.env.PORT || 4000;

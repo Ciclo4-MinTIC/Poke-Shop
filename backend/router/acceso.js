@@ -18,7 +18,33 @@ router = express.Router();
 // });
 
 // READ Students
-router.route('/validate').post((req, res) => {
+router.route('/login').post((req, res) => {
+
+    const user = {
+        email: "camilo@utp.com",
+        password: "1234"
+    }
+//   studentSchema.find((error, data) => {
+//     if (error) {
+//         return next(error)
+//     } else {
+//         res.json(data)
+//     }
+//   })
+    if (req.body.email === user.email && req.body.password === user.password ){
+        res.json({
+            'estado': 'ok'
+        })
+    }
+    else {
+        res.json({
+            "estado": "okn't"
+        })
+    }
+})
+
+// READ Students
+router.route('/signup').post((req, res) => {
 
     const users = [{name:"camilo", lastname:"torres", email:"camilo@utp.com", password:"12345678"},{name:"nicolas", lastname:"buitrago", email:"nicolas@utp.com", password:"12345678"},{name:"angelica", lastname:"gutierrez", email:"angelica@utp.com", password:"12345678"}]
 //   studentSchema.find((error, data) => {
