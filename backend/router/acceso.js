@@ -1,8 +1,5 @@
-let mongoose = require('mongoose'),
 express = require('express'),
 router = express.Router();
-
-const { json } = require('body-parser');
 // Student Model
 let usuario = require('../models/usuario');
 
@@ -46,26 +43,21 @@ router.route('/login').post((req, res) => {
 
 // Crear Usuario
 router.route('/signup').post((req, res) => {
-    let user= usuario.findOne(req.body.email) || null
-   
-    if(user!==null){
-        usuario.create(req.body,(error, data) => {
-            if (error) {
-                return next(error)
-            } else {
-                
-                res.json(data)
-            }
-          })
-    }
-    else {
-        res.json({
-            mensage:"Dirección de correo en uso"
-        })
-    }
     
-    
-  
+    usuario.findOne({email: req.body.email})
+    .then((user) => {
+        if (user) {
+            return res.status(400).json({ email: "Email already exists" });
+        } else {
+            usuario.create(req.body,(error, data) => {
+                if (error) {
+                    return next(error)
+                } else {
+                    res.json(data)
+                }
+            })
+        }
+    })
     //let existe = false
 //     let respuesta={
 //         "validacionCorreo": true,
