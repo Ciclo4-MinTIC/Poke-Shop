@@ -17,7 +17,7 @@ router = express.Router();
 // })
 // });
 
-// READ Students
+// Loguear Usuario
 router.route('/login').post((req, res) => {
 
     const user = {
@@ -43,7 +43,7 @@ router.route('/login').post((req, res) => {
     }
 })
 
-// READ Students
+// Crear Usuario
 router.route('/signup').post((req, res) => {
 
     const users = [{name:"camilo", lastname:"torres", email:"camilo@utp.com", password:"12345678"},{name:"nicolas", lastname:"buitrago", email:"nicolas@utp.com", password:"12345678"},{name:"angelica", lastname:"gutierrez", email:"angelica@utp.com", password:"12345678"}]
