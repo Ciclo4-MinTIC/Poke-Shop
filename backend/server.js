@@ -9,16 +9,16 @@ const catalogoRoute = require('./router/catalogo')
 const accessRoute = require('./router/acceso.js')
 
 // Connecting mongoDB Database
-// mongoose.Promise = global.Promise;
-// mongoose.connect(dbConfig.db, {
-//   useNewUrlParser: true
-// }).then(() => {
-//   console.log('Database sucessfully connected!')
-// },
-//   error => {
-//     console.log('Could not connect to database : ' + error)
-//   }
-// )
+mongoose.Promise = global.Promise;
+mongoose.connect(dbConfig.db, {
+  useNewUrlParser: true
+}).then(() => {
+  console.log('Database sucessfully connected!')
+},
+  error => {
+    console.log('Could not connect to database : ' + error)
+  }
+)
 
 const app = express();
 app.use(bodyParser.json());
