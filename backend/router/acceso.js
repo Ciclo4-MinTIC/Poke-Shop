@@ -1,9 +1,10 @@
-// let mongoose = require('mongoose'),
+let mongoose = require('mongoose'),
 express = require('express'),
 router = express.Router();
 
+const { json } = require('body-parser');
 // Student Model
-// let studentSchema = require('../models/Student');
+let usuario = require('../models/usuario');
 
 // CREATE Student
 // router.route('/create-student').post((req, res, next) => {
@@ -45,25 +46,52 @@ router.route('/login').post((req, res) => {
 
 // Crear Usuario
 router.route('/signup').post((req, res) => {
-
-    const users = [{name:"camilo", lastname:"torres", email:"camilo@utp.com", password:"12345678"},{name:"nicolas", lastname:"buitrago", email:"nicolas@utp.com", password:"12345678"},{name:"angelica", lastname:"gutierrez", email:"angelica@utp.com", password:"12345678"}]
-//   studentSchema.find((error, data) => {
-//     if (error) {
-//         return next(error)
-//     } else {
-//         res.json(data)
-//     }
-//   })
-    
-    users.forEach(user => {
-        if(user.email === req.body.email){
-            console.log("ya existe")
-        }
-    })
-
-    if (req.body.password.length < 8 ){
-        console.log("contraseña invalida")
+    let user= usuario.findOne(req.body.email) || null
+   
+    if(user!==null){
+        usuario.create(req.body,(error, data) => {
+            if (error) {
+                return next(error)
+            } else {
+                
+                res.json(data)
+            }
+          })
     }
+    else {
+        res.json({
+            mensage:"Dirección de correo en uso"
+        })
+    }
+    
+    
+  
+    //let existe = false
+//     let respuesta={
+//         "validacionCorreo": true,
+//         "validacionContrasena":true,
+//         "registroUsuario":false
+//     }
+
+//     users.forEach(user => {
+//         if(user.email === req.body.email){
+//             console.log("ya existe")
+//             //existe=true
+//             respuesta.validacionCorreo=false
+
+
+
+//         }
+//     })
+
+//     if (req.body.password.length < 8 ){
+//         respuesta.validacionContrasena=false
+//         console.log("contraseña invalida")
+//     }
+//    if (respuesta.validacionCorreo && respuesta.validacionContrasena){
+//        respuesta.registroUsuario=true
+//    }
+//    res.json(respuesta)
 })
 
 // // Get Single Student
