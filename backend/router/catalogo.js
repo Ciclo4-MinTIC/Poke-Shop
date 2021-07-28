@@ -1,13 +1,13 @@
-// let mongoose = require('mongoose'),
+let mongoose = require('mongoose'),
 express = require('express'),
 router = express.Router();
 
 // Student Model
-// let studentSchema = require('../models/Student');
+let producto = require('../models/producto');
 
 // CREATE Student
-router.route('/create-student').post((req, res, next) => {
-    studentSchema.create(req.body, (error, data) => {
+router.route('/create').post((req, res, next) => {
+    producto.create(req.body, (error, data) => {
     if (error) {
         return next(error)
     } else {
