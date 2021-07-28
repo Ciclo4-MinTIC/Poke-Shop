@@ -17,5 +17,7 @@ let Producto = new Schema({
  calificacion: {
     type: Number
  }
+},{
+   collection: 'usuarios'
 });
 module.exports = mongoose.model('Producto', Producto);

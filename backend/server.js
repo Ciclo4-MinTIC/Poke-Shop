@@ -6,20 +6,19 @@ let dbConfig = require('./database/database.js');
 
 // Express Route
 const catalogoRoute = require('./router/catalogo')
-const singupRoute = require('./router/signup.js')
-const loginRoute = require("./router/login")
+const accessRoute = require('./router/acceso.js')
 
 // Connecting mongoDB Database
-// mongoose.Promise = global.Promise;
-// mongoose.connect(dbConfig.db, {
-//   useNewUrlParser: true
-// }).then(() => {
-//   console.log('Database sucessfully connected!')
-// },
-//   error => {
-//     console.log('Could not connect to database : ' + error)
-//   }
-// )
+mongoose.Promise = global.Promise;
+mongoose.connect(dbConfig.db, {
+  useNewUrlParser: true
+}).then(() => {
+  console.log('Database sucessfully connected!')
+},
+  error => {
+    console.log('Could not connect to database : ' + error)
+  }
+)
 
 const app = express();
 app.use(bodyParser.json());
@@ -29,9 +28,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use('/catalogo', catalogoRoute)
-app.use('/signup', singupRoute)
-app.use('/login', loginRoute)
-
+app.use('/acceso', accessRoute)
 
 // PORT
 const port = process.env.PORT || 4000;

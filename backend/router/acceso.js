@@ -17,8 +17,8 @@ router = express.Router();
 // })
 // });
 
-// READ Students
-router.route('/validate').post((req, res) => {
+// Loguear Usuario
+router.route('/login').post((req, res) => {
 
     const user = {
         email: "camilo@utp.com",
@@ -32,18 +32,54 @@ router.route('/validate').post((req, res) => {
 //     }
 //   })
     if (req.body.email === user.email && req.body.password === user.password ){
-       
         res.json({
             'estado': 'ok'
-            
         })
     }
     else {
-
         res.json({
             "estado": "okn't"
         })
     }
+})
+
+// Crear Usuario
+router.route('/signup').post((req, res) => {
+
+    const users = [{name:"camilo", lastname:"torres", email:"camilo@utp.com", password:"12345678"},{name:"nicolas", lastname:"buitrago", email:"nicolas@utp.com", password:"12345678"},{name:"angelica", lastname:"gutierrez", email:"angelica@utp.com", password:"12345678"}]
+//   studentSchema.find((error, data) => {
+//     if (error) {
+//         return next(error)
+//     } else {
+//         res.json(data)
+//     }
+//   })
+    //let existe = false
+    let respuesta={
+        "validacionCorreo": true,
+        "validacionContrasena":true,
+        "registroUsuario":false
+    }
+
+    users.forEach(user => {
+        if(user.email === req.body.email){
+            console.log("ya existe")
+            //existe=true
+            respuesta.validacionCorreo=false
+
+
+
+        }
+    })
+
+    if (req.body.password.length < 8 ){
+        respuesta.validacionContrasena=false
+        console.log("contraseña invalida")
+    }
+   if (respuesta.validacionCorreo && respuesta.validacionContrasena){
+       respuesta.registroUsuario=true
+   }
+   res.json(respuesta)
 })
 
 // // Get Single Student

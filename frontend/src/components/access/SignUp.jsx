@@ -18,28 +18,8 @@ const SignUp = () => {
         }
 
         if(newUser.name !== "" && newUser.lastName !== "" && newUser.email !== "" && newUser.password !== "" ){
-            axios.post('http://localhost:4000/signup/validate', newUser)
-            .then(res => {
-                if (res.data.validacionContrasena){
-                    
-                    if(res.data.validacionCorreo){
-                       if(res.data.registroUsuario) {
-                           window.location.href="../catalogo"
-                       }
-                       else{
-                           alert("Upss Algo paso...")
-
-                       }
-                    }
-                    else{
-                        alert("Este correo ya existe")
-                    }
-                }
-                else{
-                    alert("su contraseña debe tener 8 digitos")
-
-                }
-            })
+            axios.post('http://localhost:4000/acceso/signup', newUser)
+            .then(res => console.log(res))
             .catch(e => console.log("No sirvio"))
         }else{
             alert("no se envió petición, todos los campos son requeridos")

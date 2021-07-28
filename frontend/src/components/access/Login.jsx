@@ -18,20 +18,8 @@ const Login = () => {
 
         console.log(user.email)
         console.log(user.password)
-        axios.post('http://localhost:4000/login/validate', user)
-        .then(res => {
-            console.log(res)
-            if (res.data.estado ==="ok")
-            {
-                alert("Bienvenido")
-                window.location.href="../catalogo"
-
-            }
-            else{
-                alert("Usuario o contraseña incorrecta")
-            }
-            
-        })
+        axios.post('http://localhost:4000/acceso/login', user)
+        .then(res => console.log(res))
         .catch(e => console.log("No sirvio"))
     }
 
