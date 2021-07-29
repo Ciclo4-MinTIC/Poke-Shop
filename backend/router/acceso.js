@@ -46,23 +46,6 @@ router.route('/signup').post((req, res) => {
             })
         }
     })
-    //let existe = false
-//     let respuesta={
-//         "validacionCorreo": true,
-//         "validacionContrasena":true,
-//         "registroUsuario":false
-//     }
-
-//     users.forEach(user => {
-//         if(user.email === req.body.email){
-//             console.log("ya existe")
-//             //existe=true
-//             respuesta.validacionCorreo=false
-
-
-
-//         }
-//     })
 
 //     if (req.body.password.length < 8 ){
 //         respuesta.validacionContrasena=false
