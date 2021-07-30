@@ -23,6 +23,6 @@ let Producto = new Schema({
    }
 },
 {
-   collection: 'usuarios'
+   collection: 'productos'
 });
 module.exports = mongoose.model('Producto', Producto);
