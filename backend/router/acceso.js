@@ -42,7 +42,7 @@ router.route('/signup').post((req, res) => {
     const { errors, isValid } = signUpValidate(req.body);
 
     if(!isValid){
-        res.status(400).json({
+        res.json({
             register: false,
             errors
         })
@@ -53,10 +53,10 @@ router.route('/signup').post((req, res) => {
         usuario.findOne({email: req.body.email})
         .then((user) => {
             if (user) {
-                return res.status(400).json({ register:false, emailExists: "Email already exists" });
+                return res.json({ register: false, errors: {email: "Email already exists"} });
             } else {
                 // Encriptación de la password
-                req.body.password = bcrypt.hashSync(req.body.password, 10);
+                // req.body.password = bcrypt.hashSync(req.body.password, 10);
                 usuario.create(req.body,(error, data) => {
                     if (error) {
                         return next(error)
