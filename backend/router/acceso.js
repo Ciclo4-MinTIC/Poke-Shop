@@ -1,7 +1,11 @@
 express = require('express'),
 router = express.Router();
-// Student Model
+// Model
 let usuario = require('../models/usuario');
+// Validation
+let signUpValidate = require('../validation/signup')
+let loginValidate = require('../validation/login')
+
 
 // Loguear Usuario
 router.route('/login').post((req, res) => {
@@ -31,30 +35,30 @@ router.route('/login').post((req, res) => {
 
 // Crear Usuario
 router.route('/signup').post((req, res) => {
-    
-    usuario.findOne({email: req.body.email})
-    .then((user) => {
-        if (user) {
-            return res.status(400).json({ email: "Email already exists" });
-        } else {
-            usuario.create(req.body,(error, data) => {
-                if (error) {
-                    return next(error)
-                } else {
-                    res.json(data)
-                }
-            })
-        }
-    })
+    // Form validation
+    const { errors, isValid } = signUpValidate(req.body);
 
-//     if (req.body.password.length < 8 ){
-//         respuesta.validacionContrasena=false
-//         console.log("contraseña invalida")
-//     }
-//    if (respuesta.validacionCorreo && respuesta.validacionContrasena){
-//        respuesta.registroUsuario=true
-//    }
-//    res.json(respuesta)
+    if(!isValid){
+        res.status(400).json(errors)
+    }
+
+    // Campos bien digitados
+    else{
+        usuario.findOne({email: req.body.email})
+        .then((user) => {
+            if (user) {
+                return res.status(400).json({ email: "Email already exists" });
+            } else {
+                usuario.create(req.body,(error, data) => {
+                    if (error) {
+                        return next(error)
+                    } else {
+                        res.json(data)
+                    }
+                })
+            }
+        })
+    }
 })
 
 module.exports = router;
