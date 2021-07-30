@@ -1,5 +1,8 @@
 express = require('express'),
 router = express.Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keys = require("../database/database");
 // Model
 let usuario = require('../models/usuario');
 // Validation
@@ -49,6 +52,8 @@ router.route('/signup').post((req, res) => {
             if (user) {
                 return res.status(400).json({ email: "Email already exists" });
             } else {
+                // Encriptación de la password
+                req.body.password = bcrypt.hashSync(req.body.password, 10);
                 usuario.create(req.body,(error, data) => {
                     if (error) {
                         return next(error)
