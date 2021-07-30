@@ -8,13 +8,13 @@ const Catalogo = ({title, imageSource, text}) => {
   return (
     <div>
       
-      <div class="card text-center my-4 border-dark bg-dark">
-        <div class="overflow">
-        <img src={imageSource} alt="" class="card-img-top"></img>
+      <div className="card text-center my-4 border-dark bg-dark">
+        <div className="overflow">
+        <img src={imageSource} alt="" className="card-img-top"></img>
         </div>
-        <div class="card-body text-light">
-          <h5 class="card-title">{title}</h5>
-          <p class="card-text">
+        <div className="card-body text-light">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">
             {
               text? text: 'Por favor agregue una descripción'
             }
@@ -24,7 +24,7 @@ const Catalogo = ({title, imageSource, text}) => {
           {/* <!-- Button trigger modal --> */}
           <button
             type="button"
-            class="btn btn-outline-warning btn-sm"
+            className="btn btn-outline-warning btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
