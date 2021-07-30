@@ -42,7 +42,10 @@ router.route('/signup').post((req, res) => {
     const { errors, isValid } = signUpValidate(req.body);
 
     if(!isValid){
-        res.status(400).json(errors)
+        res.status(400).json({
+            register: false,
+            errors
+        })
     }
 
     // Campos bien digitados
@@ -50,7 +53,7 @@ router.route('/signup').post((req, res) => {
         usuario.findOne({email: req.body.email})
         .then((user) => {
             if (user) {
-                return res.status(400).json({ email: "Email already exists" });
+                return res.status(400).json({ register:false, emailExists: "Email already exists" });
             } else {
                 // Encriptación de la password
                 req.body.password = bcrypt.hashSync(req.body.password, 10);
@@ -58,7 +61,10 @@ router.route('/signup').post((req, res) => {
                     if (error) {
                         return next(error)
                     } else {
-                        res.json(data)
+                        res.json({
+                            register: true,
+                            data
+                        })
                     }
                 })
             }

@@ -27,11 +27,11 @@ const Login = () => {
         <div>
             <form>
                 <div className="form-group mb-3">
-                    <label for="InputEmail" className="mb-2 text-light">Email address</label>
+                    <label htmlFor="InputEmail" className="mb-2 text-light">Email address</label>
                     <input type="email" className="form-control bg-transparent text-light" onChange={(e) => {setEmail(e.target.value)}} id="InputEmail" placeholder="name@example.com" value={email} required/>
                 </div>
-                <div class="form-group mb-3">
-                    <label for="InputPassword" className="mb-2 text-light">Password</label>
+                <div className="form-group mb-3">
+                    <label htmlFor="InputPassword" className="mb-2 text-light">Password</label>
                     <input type="password" className="form-control bg-transparent text-light" onChange={(e) => {setPassword(e.target.value)}} id="InputPassword" placeholder="Password" value={password} required/>
                 </div>
                 <div>
