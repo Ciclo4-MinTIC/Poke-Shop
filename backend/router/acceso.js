@@ -13,25 +13,51 @@ let loginValidate = require('../validation/login')
 // Loguear Usuario
 router.route('/login').post((req, res) => {
 
-    const user = {
-        email: "camilo@utp.com",
-        password: "1234"
+    // Form validation
+    const { errors, isValid } = loginValidate(req.body);
+
+    if (!isValid) {
+        return res.status(400).json(errors);
     }
-//   studentSchema.find((error, data) => {
-//     if (error) {
-//         return next(error)
-//     } else {
-//         res.json(data)
-//     }
-//   })
-    if (req.body.email === user.email && req.body.password === user.password ){
-        res.json({
-            'estado': 'ok'
-        })
-    }
-    else {
-        res.json({
-            "estado": "okn't"
+
+    // Validaciones Correctas
+    else{
+        usuario.findOne({email: req.body.email})
+        .then((user) => {
+            if (user) {
+                bcrypt.compare(req.body.password, user.password)
+                .then((isMatch) => {
+                    if (isMatch) {
+                        // User matched
+                        // Create JWT Payload
+                        const payload = {
+                            id: user.id,
+                            name: user.name,
+                            lastName: user.lastName,
+                            email: user.email,
+                            // password: user.password
+                        };
+                        // Sign token
+                        jwt.sign(
+                            payload,
+                            keys.secretOrKey,
+                            {
+                                expiresIn: 3600, // 1 hour in seconds
+                            },
+                            (err, token) => {
+                                res.json({
+                                    success: false,
+                                    token: "Bearer " + token,
+                                });
+                            }
+                        );
+                    } else {
+                        res.json({ uccess: true, incorrect: "Incorrect email and / or password" });
+                    }
+                })
+            } else {
+                res.json({ success: false, incorrect: "Incorrect email and / or password" });
+            }
         })
     }
 })
@@ -48,7 +74,7 @@ router.route('/signup').post((req, res) => {
         })
     }
 
-    // Campos bien digitados
+    // Validaciones Correctas
     else{
         usuario.findOne({email: req.body.email})
         .then((user) => {
@@ -56,7 +82,7 @@ router.route('/signup').post((req, res) => {
                 return res.json({ register: false, errors: {email: "Email already exists"} });
             } else {
                 // Encriptación de la password
-                // req.body.password = bcrypt.hashSync(req.body.password, 10);
+                req.body.password = bcrypt.hashSync(req.body.password, 10);
                 usuario.create(req.body,(error, data) => {
                     if (error) {
                         return next(error)
