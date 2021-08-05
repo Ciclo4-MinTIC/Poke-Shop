@@ -24,18 +24,15 @@ router.route('/producto/create').post((req, res, next) => {
 })
 });
 
-// READ Students
-router.route('/').get((req, res) => {
-//   studentSchema.find((error, data) => {
-//     if (error) {
-//         return next(error)
-//     } else {
-//         res.json(data)
-//     }
-//   })
-    res.json({
-        "estado": "Si sirve"
-    })
+// Get Productos
+router.route('/productos').get((req, res) => {
+  producto.find((error, data) => {
+    if (error) {
+        return next(error)
+    } else {
+        res.json(data)
+    }
+  })
 })
 
 // Get Single Student
