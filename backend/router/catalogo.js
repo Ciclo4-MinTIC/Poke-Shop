@@ -13,7 +13,6 @@ router.route('/producto/create').post((req, res, next) => {
     if (!isValid) {
         return res.json(errors);
     } else {
-
       producto.create(req.body, (error, data) => {
         if (error) {
             return next(error)
