@@ -12,16 +12,17 @@ router.route('/producto/create').post((req, res, next) => {
 
     if (!isValid) {
         return res.json(errors);
-    }
-    
-    producto.create(req.body, (error, data) => {
-    if (error) {
-        return next(error)
     } else {
-        console.log(data)
-        res.json(data)
+
+      producto.create(req.body, (error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            console.log(data)
+            res.json(data)
+        }
+      })
     }
-})
 });
 
 // Get Productos
