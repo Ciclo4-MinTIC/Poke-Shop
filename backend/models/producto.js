@@ -3,23 +3,40 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 let Producto = new Schema({
    titulo: {
-   type: String,
-   required:true
+      type: String,
+      required:true
    },
    descripcion: {
-   type: String,
-   required:true
+      type: String,
+      required:true
    },
    imagen: {
-   type: String,
-   required:true
+      type: String,
+      required:true
    },
    precio: {
-   type: Number,
-   required:true
+      type: Number,
+      required:true
    },
    calificacion: {
-      type: Number
+      type: Number,
+      default: 0,
+   },
+   tipo: {
+      type: String,
+      required: true,
+   },
+   especie: {
+      type: String,
+      required: true,
+   },
+   habilidad: {
+      type: String,
+      required: true,
+   },
+   altura: {
+      type: String,
+      required: true,
    }
 },
 {
