@@ -49,9 +49,6 @@ const VistaProducto = () => {
                       <dt className="col-sm-3 text-start">Tipo:</dt>
                       <dd className="col-sm-9 text-start">Psíquico</dd>
 
-                      <dt className="col-sm-3 text-start ">Especie:</dt>
-                      <dd className="col-sm-9 text-start">Pokémon genético</dd>
-
                       <dt className="col-sm-3 text-start ">Habilidad:</dt>
                       <dd className="col-sm-9 text-start">Presión</dd>
 

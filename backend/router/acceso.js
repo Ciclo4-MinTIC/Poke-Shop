@@ -17,7 +17,7 @@ router.route('/login').post((req, res) => {
     const { errors, isValid } = loginValidate(req.body);
 
     if (!isValid) {
-        return res.status(400).json(errors);
+        return res.json(errors);
     }
 
     // Validaciones Correctas
@@ -35,6 +35,7 @@ router.route('/login').post((req, res) => {
                             name: user.name,
                             lastName: user.lastName,
                             email: user.email,
+                            roll: user.roll,
                             // password: user.password
                         };
                         // Sign token

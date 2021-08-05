@@ -26,10 +26,6 @@ let Producto = new Schema({
       type: String,
       required: true,
    },
-   especie: {
-      type: String,
-      required: true,
-   },
    habilidad: {
       type: String,
       required: true,

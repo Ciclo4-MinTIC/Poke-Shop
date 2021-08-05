@@ -1,12 +1,19 @@
-let mongoose = require('mongoose'),
 express = require('express'),
 router = express.Router();
-
-// Student Model
+// Producto Model
 let producto = require('../models/producto');
+// Validation
+let productoValidate = require('../validation/producto')
 
-// CREATE Student
-router.route('/create').post((req, res, next) => {
+// Crear Producto
+router.route('/producto/create').post((req, res, next) => {
+    // Form validation
+    const { errors, isValid } = productoValidate(req.body);
+
+    if (!isValid) {
+        return res.json(errors);
+    }
+    
     producto.create(req.body, (error, data) => {
     if (error) {
         return next(error)
