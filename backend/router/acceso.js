@@ -46,13 +46,13 @@ router.route('/login').post((req, res) => {
                             },
                             (err, token) => {
                                 res.json({
-                                    success: false,
+                                    success: true,
                                     token: "Bearer " + token,
                                 });
                             }
                         );
                     } else {
-                        res.json({ uccess: true, incorrect: "Incorrect email and / or password" });
+                        res.json({ success: false, incorrect: "Incorrect email and / or password" });
                     }
                 })
             } else {
