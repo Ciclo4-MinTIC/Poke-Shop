@@ -277,7 +277,7 @@ const catalogos =
 function Catalogos(){
     
     return (
-        <div className="container d-flex justify-content-center aligh-items-center">
+        <div className="Catalogo container d-flex justify-content-center aligh-items-center">
             
             <div className="row">  
                 {
