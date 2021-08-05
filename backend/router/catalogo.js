@@ -24,7 +24,7 @@ router.route('/producto/create').post((req, res, next) => {
     }
 });
 
-// Get Productos
+// Get Productos 
 router.route('/productos').get((req, res) => {
   producto.find((error, data) => {
     if (error) {
