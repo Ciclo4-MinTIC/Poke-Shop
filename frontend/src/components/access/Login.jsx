@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
-import axios from 'axios';
+import { loginUser } from "../../actions/authActions";
 
 const Login = () => {
 
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
-  
 
 
     const validate = (e) => {
@@ -16,11 +15,7 @@ const Login = () => {
             password: password, 
         }
 
-        console.log(user.email)
-        console.log(user.password)
-        axios.post('http://localhost:4000/acceso/login' , user)
-        .then(res => console.log(res))
-        .catch(e => console.log("No sirvio"))
+        loginUser(user)
     }
 
     return (

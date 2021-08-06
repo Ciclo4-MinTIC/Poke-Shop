@@ -120,7 +120,7 @@ const Productos = () => {
           <tbody>
             {
               listaProductos.map(producto => 
-                <tr>
+                <tr key={producto._id}>
                   <td className="d-flex justify-content-center">
                     <img
                       className="imagen-miniatura img-fluid"

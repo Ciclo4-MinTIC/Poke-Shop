@@ -28,7 +28,7 @@ const SignUp = () => {
             .then(res => {
                 if(res.data.register){
                     swal("Bienvenido", "Registro exitoso!!", "success");
-                    window.location.href = '../catalogo'
+                    window.location.href = '/'
                 }
                 else{
                     setErrors(res.data.errors)

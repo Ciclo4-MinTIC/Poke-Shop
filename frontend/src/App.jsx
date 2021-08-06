@@ -3,7 +3,6 @@ import Catalogos from "./components/Catalogos";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import VistaProducto from "./components/VistaProducto";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home.jsx";
@@ -26,8 +25,6 @@ function App() {
           </Route>        
         </Switch>
       </Router>
-
-      <VistaProducto></VistaProducto>
     </div>
   );
 }
