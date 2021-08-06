@@ -1,6 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+import axios from 'axios'
 
-const productos = () => {
+const Productos = () => {
+
+  const [listaProductos, setLista] = useState([]);
+
+  useEffect (() =>  {
+    axios.get('http://localhost:4000/catalogo/productos')
+      .then(res => {
+        setLista(res.data)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [])
+
+
+
+
+
   return (
     <div>
       <div className="container">
@@ -17,7 +35,7 @@ const productos = () => {
             + Agregar un producto
           </button>
         </p>
-        <div class="collapse" id="collapseExample">
+        <div className="collapse" id="collapseExample">
           <div className="container border">
             <form action="" className="p-3">
               <div className="row">
@@ -85,7 +103,7 @@ const productos = () => {
         </div>
 
         <hr />
-        <table class="table table-striped table-bordered">
+        <table className="table table-striped table-bordered">
           <thead>
             <tr>
               <th scope="col">Imágen</th>
@@ -100,26 +118,30 @@ const productos = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="d-flex justify-content-center">
-                <img
-                  className="imagen-miniatura img-fluid"
-                  src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c325.png"
-                  alt=""
-                />
-              </td>
-              <th>Pikachu</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>
-                <button className="btn btn-outline-warning">Editar</button>{' '}
-                <button className="btn btn-outline-danger">Eliminar</button>
-              </td>
-            </tr>
+            {
+              listaProductos.map(producto => 
+                <tr>
+                  <td className="d-flex justify-content-center">
+                    <img
+                      className="imagen-miniatura img-fluid"
+                      src={producto.imagen}
+                      alt=""
+                    />
+                  </td>
+                  <th>{producto.titulo}</th>
+                  <td>{producto.descripcion}</td>
+                  <td>{producto.precio}</td>
+                  <td>{producto.calificacion}</td>
+                  <td>{producto.habilidad}</td>
+                  <td>{producto.altura}</td>
+                  <td>{producto.tipo}</td>
+                  <td>
+                    <button className="btn btn-outline-warning">Editar</button>{' '}
+                    <button className="btn btn-outline-danger">Eliminar</button>
+                  </td>
+                </tr>
+              )
+            }
           </tbody>
         </table>
       </div>
@@ -127,4 +149,4 @@ const productos = () => {
   )
 }
 
-export default productos
+export default Productos
