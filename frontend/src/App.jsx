@@ -10,22 +10,22 @@ import Producto from "./components/productos";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar></Navbar>
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/catalogo">
-            <Catalogos className="Catalogo"/>
-          </Route>   
-          <Route path="/admin/productos">
-            <Producto />
-          </Route>        
-        </Switch>
-      </Router>
-    </div>
+        <div className="App">
+          <Navbar></Navbar>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/catalogo">
+              <Catalogos className="Catalogo"/>
+            </Route>   
+            <Route path="/admin/productos">
+              <Producto />
+            </Route>        
+          </Switch>
+        </div>
+    </Router>
   );
 }
 

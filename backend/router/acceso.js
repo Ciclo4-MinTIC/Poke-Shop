@@ -17,7 +17,10 @@ router.route('/login').post((req, res) => {
     const { errors, isValid } = loginValidate(req.body);
 
     if (!isValid) {
-        return res.json(errors);
+        return res.json({
+            success: false,
+            errors
+        });
     }
 
     // Validaciones Correctas
@@ -48,16 +51,16 @@ router.route('/login').post((req, res) => {
                             (err, token) => {
                                 res.json({
                                     success: true,
-                                    token: "Bearer " + token,
+                                    token: token,
                                 });
                             }
                         );
                     } else {
-                        res.json({ success: false, incorrect: "Incorrect email and / or password" });
+                        res.json({ success: false, errors:{incorrect: "Incorrect email and / or password"} });
                     }
                 })
             } else {
-                res.json({ success: false, incorrect: "Incorrect email and / or password" });
+                res.json({ success: false, errors:{incorrect: "Incorrect email and / or password"} });
             }
         })
     }

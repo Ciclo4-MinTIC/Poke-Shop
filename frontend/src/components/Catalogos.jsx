@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Catalogo from './Catalogo'
 import { Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import swal from 'sweetalert';
 
 
 
@@ -23,20 +22,37 @@ const Catalogos = () => {
     }, [])
     
     return (
-        <div className="Catalogo container d-flex justify-content-center aligh-items-center">
-            
-            <div className="row">  
+        <div>
+            <Route>
                 {
-                    listaProductos.map(producto =>(
-                    <div className="col-md-4" key={producto._id}>
-                        <Catalogo title={producto.titulo} imageSource={producto.imagen} text={producto.descripcion} informacion={producto}/>
-                    </div>
-                    ))
-                }     
-            </div>
+                    localStorage.jwtToken !=  null ? (
+                        <div className="Catalogo container d-flex justify-content-center aligh-items-center">
+                            <div className="row">  
+                                {
+                                    listaProductos.map(producto =>(
+                                    <div className="col-md-4" key={producto._id}>
+                                        <Catalogo title={producto.titulo} imageSource={producto.imagen} text={producto.descripcion} informacion={producto}/>
+                                    </div>
+                                    ))
+                                }     
+                            </div>
+                        </div>
+                    ) : 
+                    (   
+                        
+                        <Redirect to="/"> 
+                            {
+                                swal("Oops !!", "Por favor inicie sesión primero", "error")
+                            }
+                        </Redirect>
+                    )
+                
+                }
+            </Route>
         </div>
+        
     )
-}
+};
 
 export default Catalogos
 

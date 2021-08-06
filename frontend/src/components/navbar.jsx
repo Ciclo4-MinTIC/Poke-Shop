@@ -1,7 +1,17 @@
 import React from "react";
 import Access from "./Access";
+import setAuthToken from "../utils/setAuthToken.js";
 
 const navbar = () => {
+
+  const logout = (e) => {
+    e.preventDefault()
+    // Remove auth header for future requests
+    localStorage.removeItem("jwtToken");
+    setAuthToken(false);
+    window.location.href = '/'
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,14 +43,27 @@ const navbar = () => {
                 </a>
               </li>
             </ul>
-              <button
-                type="button"
-                className="btn btn-warning text-light"
-                data-bs-toggle="modal"
-                data-bs-target="#accessModal"
-              >
-                Acceso
-              </button>
+            {
+                localStorage.jwtToken != null ? (
+                    <button
+                      type="button"
+                      className="btn btn-warning text-light"
+                      onClick={logout}
+                    >
+                      LogOut
+                    </button>
+                ) : (
+                    <button
+                      type="button"
+                      className="btn btn-warning text-light"
+                      data-bs-toggle="modal"
+                      data-bs-target="#accessModal"
+                    >
+                      Acceso
+                    </button>
+                )
+            
+            }
           </div>
         </div>
       </nav>
