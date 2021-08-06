@@ -35,7 +35,7 @@ const Login = () => {
                 // Decode token to get user data
                 // const decoded = jwt_decode(token)
 
-                swal("Bienvenido", "Registro exitoso!!", "success");
+                swal("Bienvenido", "Logueo Exitoso!!", "success");
 
                 window.location.href = '../catologo'
             }else{
