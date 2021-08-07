@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import swal from 'sweetalert';
+import setAuthToken from "../../utils/setAuthToken.js";
 import axios from 'axios';
 
 const SignUp = () => {
@@ -27,8 +28,14 @@ const SignUp = () => {
         axios.post('http://localhost:4000/acceso/signup' , newUser)
             .then(res => {
                 if(res.data.register){
+                    // Save to localStorage
+                    // Set token to localStorage
+                    const { token } = res.data;
+                    localStorage.setItem("jwtToken", token);
+                    // Set token to Auth header
+                    setAuthToken(token);
                     swal("Bienvenido", "Registro exitoso!!", "success");
-                    window.location.href = '/'
+                    window.location.href = '../catalogo'
                 }
                 else{
                     setErrors(res.data.errors)

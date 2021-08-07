@@ -37,7 +37,7 @@ const Login = () => {
 
                 swal("Bienvenido", "Logueo Exitoso!!", "success");
 
-                window.location.href = '../catologo'
+                window.location.href = '../catalogo'
             }else{
                 setErrors(res.data.errors)
             }

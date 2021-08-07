@@ -91,10 +91,28 @@ router.route('/signup').post((req, res) => {
                     if (error) {
                         return next(error)
                     } else {
-                        res.json({
-                            register: true,
-                            data
-                        })
+                            const payload = {
+                                id: data.id,
+                                name: data.name,
+                                lastName: data.lastName,
+                                email: data.email,
+                                roll: data.roll,
+                                // password: user.password
+                            };
+                            // Sign token
+                            jwt.sign(
+                                payload,
+                                keys.secretOrKey,
+                                {
+                                    expiresIn: 3600, // 1 hour in seconds
+                                },
+                                (err, token) => {
+                                    res.json({
+                                        register: true,
+                                        token: token,
+                                    });
+                                }
+                            );
                     }
                 })
             }

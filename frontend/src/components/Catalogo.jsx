@@ -1,6 +1,5 @@
 import React from "react";
 import './catalogos.css'
-import PropTypes from 'prop-types'
 
 
 
@@ -17,7 +16,7 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
           <h5 className="card-title">{title}</h5>
           <p className="card-text">
             {
-              text? text: 'Por favor agregue una descripción'
+              text
             }
           </p>
           <a href="#!" className="btn btn-outline-secondary border-0">
@@ -36,7 +35,7 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
 
           {/* Modal */}
           <div
-            className="modal fade "
+            className="modal fade"
             id={informacion.titulo}
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
@@ -62,7 +61,6 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
                           <img
                             src={informacion.imagen}
                             className="img-fluid"
-                            onTouchCancel
                             alt="imagen"
                           ></img>                   
 
@@ -101,7 +99,7 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
                   <div className="modal-footer">
                     <button
                       type="button"
-                      className="btn btn-outline-warning"
+                      className="btn btn-warning"
                       data-bs-dismiss="modal"
                     >
                       Cerrar
@@ -119,12 +117,5 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
     </div>
   );
 };
-
-Catalogo.propTypes =
-{
-  title: PropTypes.string.isRequired,
-  imageSource: PropTypes.string,
-  text: PropTypes.string
-}
 
 export default Catalogo;
