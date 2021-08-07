@@ -17,23 +17,23 @@ const Productos = () => {
       })
   }, [])
 
-  const [titulo, setTitulo] = useState('')
-  const [descripcion, setDescripcion] = useState('')
-  const [imagen, setImagen] = useState('')
-  const [precio, setPrecio] = useState('')
-  const [calificacion, setCalificacion] = useState('')
-  const [tipo, setTipo] = useState('')
-  const [habilidad, setHabilidad] = useState('')
-  const [altura, setAltura] = useState('')
+  const [titulo, setTitulo] = useState("")
+  const [descripcion, setDescripcion] = useState("")
+  const [imagen, setImagen] = useState("")
+  const [precio, setPrecio] = useState("")
+  const [calificacion, setCalificacion] = useState("")
+  const [tipo, setTipo] = useState("")
+  const [habilidad, setHabilidad] = useState("")
+  const [altura, setAltura] = useState("")
   const [errors, setErrors] = useState({
-    titulo: '',
-    descripcion: '',
-    imagen: '',
-    precio: '',
-    calificacion: '',
-    tipo: '',
-    habilidad: '',
-    altura: '',
+    titulo: "",
+    descripcion: "",
+    imagen: "",
+    precio: "",
+    calificacion: "",
+    tipo: "",
+    habilidad: "",
+    altura: "",
   })
 
   const validate = (e) => {
@@ -55,14 +55,14 @@ const Productos = () => {
       .then((res) => {
         if (res.data.guardado) {
           swal('Pokémon guardado', 'El registro del pokémon', 'success')
-          setTitulo('')
-          setDescripcion('')
-          setImagen('')
-          setPrecio('')
-          setCalificacion('')
-          setTipo('')
-          setHabilidad('')
-          setAltura('')
+          setTitulo("")
+          setDescripcion("")
+          setImagen("")
+          setPrecio("")
+          setCalificacion("")
+          setTipo("")
+          setHabilidad("")
+          setAltura("")
         } else {
           setErrors(res.data.errors)
         }
@@ -137,7 +137,7 @@ const Productos = () => {
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Descripción</label>
-                    <input
+                    <textarea
                       onChange={(e) => {
                         setDescripcion(e.target.value)
                       }}
@@ -146,7 +146,7 @@ const Productos = () => {
                       name=""
                       id=""
                       className="form-control bg-transparent"
-                    />
+                    ></textarea>
                     <span className="text-danger">{errors.descripcion}</span>
                   </div>
                 </div>
