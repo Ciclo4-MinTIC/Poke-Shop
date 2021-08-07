@@ -11,14 +11,14 @@ router.route('/producto/create').post((req, res, next) => {
     const { errors, isValid } = productoValidate(req.body);
 
     if (!isValid) {
-        return res.json(errors);
+        return res.json({guardado:false,errors});
     } else {
       producto.create(req.body, (error, data) => {
         if (error) {
             return next(error)
         } else {
             console.log(data)
-            res.json(data)
+            res.json({guardado:true,data})
         }
       })
     }

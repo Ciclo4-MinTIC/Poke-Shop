@@ -23,8 +23,13 @@ module.exports = function validateProductoInput(data) {
     if (Validator.isEmpty(data.imagen)) {
         errors.imagen = "Imagen field is required";
     }
+    
     if (Validator.isEmpty(data.precio)) {
         errors.precio = "Precio field is required";
+    }else if(isNaN(data.precio)){
+        errors.precio = 'Ingrese solo números'
+    } else if (data.precio<0){
+        errors.precio = "El precio ingresado no puede ser negativo"
     }
     if (Validator.isEmpty(data.tipo)) {
         errors.tipo = "Tipo field is required";

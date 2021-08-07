@@ -1,24 +1,74 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './catalogos.css'
+import swal from 'sweetalert'
 
 const Productos = () => {
+  const [listaProductos, setLista] = useState([])
 
-  const [listaProductos, setLista] = useState([]);
-
-  useEffect (() =>  {
-    axios.get('http://localhost:4000/catalogo/productos')
-      .then(res => {
+  useEffect(() => {
+    axios
+      .get('http://localhost:4000/catalogo/productos')
+      .then((res) => {
         setLista(res.data)
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error)
       })
   }, [])
 
+  const [titulo, setTitulo] = useState('')
+  const [descripcion, setDescripcion] = useState('')
+  const [imagen, setImagen] = useState('')
+  const [precio, setPrecio] = useState('')
+  const [calificacion, setCalificacion] = useState('')
+  const [tipo, setTipo] = useState('')
+  const [habilidad, setHabilidad] = useState('')
+  const [altura, setAltura] = useState('')
+  const [errors, setErrors] = useState({
+    titulo: '',
+    descripcion: '',
+    imagen: '',
+    precio: '',
+    calificacion: '',
+    tipo: '',
+    habilidad: '',
+    altura: '',
+  })
 
+  const validate = (e) => {
+    e.preventDefault()
 
+    const newProducto = {
+      titulo: titulo,
+      descripcion: descripcion,
+      imagen: imagen,
+      precio: precio,
+      calificacion: calificacion,
+      tipo: tipo,
+      habilidad: habilidad,
+      altura: altura,
+    }
 
+    axios
+      .post('http://localhost:4000/catalogo/producto/create', newProducto)
+      .then((res) => {
+        if (res.data.guardado) {
+          swal('Pokémon guardado', 'El registro del pokémon', 'success')
+          setTitulo('')
+          setDescripcion('')
+          setImagen('')
+          setPrecio('')
+          setCalificacion('')
+          setTipo('')
+          setHabilidad('')
+          setAltura('')
+        } else {
+          setErrors(res.data.errors)
+        }
+      })
+      .catch((e) => console.log('No sirvio', e))
+  }
 
   return (
     <div>
@@ -26,7 +76,7 @@ const Productos = () => {
         <h1>Productos</h1>
         <p>
           <button
-            className="btn btn-primary"
+            className="btn btn-warning"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#collapseExample"
@@ -37,33 +87,67 @@ const Productos = () => {
           </button>
         </p>
         <div className="collapse" id="collapseExample">
-          <div className="container border">
+          <div className="container bg-secondary text-light border">
             <form action="" className="p-3">
               <div className="row">
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Título</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      onChange={(e) => {
+                        setTitulo(e.target.value)
+                      }}
+                      value={titulo}
+                      type="text"
+                      className="form-control bg-transparent"
+                    />
                   </div>
+                  <span className="text-danger">{errors.titulo}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Habilidad</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      onChange={(e) => {
+                        setHabilidad(e.target.value)
+                      }}
+                      value={habilidad}
+                      type="text"
+                      className="form-control bg-transparent"
+                    />
                   </div>
+                  <span className="text-danger">{errors.habilidad}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Tipo</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      onChange={(e) => {
+                        setTipo(e.target.value)
+                      }}
+                      value={tipo}
+                      type="text"
+                      className="form-control bg-transparent"
+                    />
                   </div>
+                  <span className="text-danger">{errors.tipo}</span>
                 </div>
               </div>
               <div className="row">
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Descripción</label>
-                    <textarea name="" id="" className="form-control"></textarea>
+                    <input
+                      onChange={(e) => {
+                        setDescripcion(e.target.value)
+                      }}
+                      value={descripcion}
+                      type="text"
+                      name=""
+                      id=""
+                      className="form-control bg-transparent"
+                    />
+                    <span className="text-danger">{errors.descripcion}</span>
                   </div>
                 </div>
               </div>
@@ -71,33 +155,67 @@ const Productos = () => {
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Altura</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      onChange={(e) => {
+                        setAltura(e.target.value)
+                      }}
+                      value={altura}
+                      type="text"
+                      className="form-control bg-transparent"
+                    />
                   </div>
+                  <span className="text-danger">{errors.altura}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Precio</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      onChange={(e) => {
+                        setPrecio(e.target.value)
+                      }}
+                      value={precio}
+                      type="text"
+                      className="form-control bg-transparent"
+                    />
                   </div>
+                  <span className="text-danger">{errors.precio}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Calificación</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      onChange={(e) => {
+                        setCalificacion(e.target.value)
+                      }}
+                      value={calificacion}
+                      type="text"
+                      className="form-control bg-transparent"
+                    />
                   </div>
+                  <span className="text-danger">{errors.calificacion}</span>
                 </div>
               </div>
               <div className="row">
                 <div className="col">
                   <div className="form-group mb-2">
                     <label htmlFor="">Imágen</label>
-                    <input type="text" className="form-control" />
+                    <input
+                      onChange={(e) => {
+                        setImagen(e.target.value)
+                      }}
+                      value={imagen}
+                      type="text"
+                      className="form-control bg-transparent"
+                    />
                   </div>
+                  <span className="text-danger">{errors.imagen}</span>
                 </div>
               </div>
               <hr />
               <div className="d-flex justify-content-center">
-                <button className="btn btn-outline-primary">Guardar</button>
+                <button className="btn btn-outline-warning" onClick={validate}>
+                  Guardar
+                </button>
               </div>
             </form>
           </div>
@@ -119,30 +237,28 @@ const Productos = () => {
             </tr>
           </thead>
           <tbody>
-            {
-              listaProductos.map(producto => 
-                <tr key={producto._id}>
-                  <td className="d-flex justify-content-center">
-                    <img
-                      className="imagen-miniatura img-fluid"
-                      src={producto.imagen}
-                      alt=""
-                    />
-                  </td>
-                  <th >{producto.titulo}</th>
-                  <td>{producto.descripcion}</td>
-                  <td>{producto.precio}</td>
-                  <td>{producto.calificacion}</td>
-                  <td>{producto.habilidad}</td>
-                  <td>{producto.altura}</td>
-                  <td>{producto.tipo}</td>
-                  <td>
-                    <button className="btn btn-outline-warning">Editar</button>{' '}
-                    <button className="btn btn-outline-danger">Eliminar</button>
-                  </td>
-                </tr>
-              )
-            }
+            {listaProductos.map((producto) => (
+              <tr key={producto._id}>
+                <td className="d-flex justify-content-center">
+                  <img
+                    className="imagen-miniatura img-fluid"
+                    src={producto.imagen}
+                    alt=""
+                  />
+                </td>
+                <th>{producto.titulo}</th>
+                <td>{producto.descripcion}</td>
+                <td>{producto.precio}</td>
+                <td>{producto.calificacion}</td>
+                <td>{producto.habilidad}</td>
+                <td>{producto.altura}</td>
+                <td>{producto.tipo}</td>
+                <td>
+                  <button className="btn btn-outline-warning">Editar</button>{' '}
+                  <button className="btn btn-outline-danger">Eliminar</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
