@@ -26,7 +26,7 @@ const Catalogos = () => {
             <Route>
                 {
                     localStorage.jwtToken !=  null ? (
-                        <div className="Catalogo container d-flex justify-content-center aligh-items-center">
+                        <div className="container d-flex justify-content-center aligh-items-center">
                             <div className="row">  
                                 {
                                     listaProductos.map(producto =>(

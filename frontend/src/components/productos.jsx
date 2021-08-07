@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
+import './catalogos.css'
 
 const Productos = () => {
 
@@ -103,7 +104,7 @@ const Productos = () => {
         </div>
 
         <hr />
-        <table className="table table-striped table-bordered">
+        <table className="table  bg-dark text-light">
           <thead>
             <tr>
               <th scope="col">Imágen</th>
@@ -128,7 +129,7 @@ const Productos = () => {
                       alt=""
                     />
                   </td>
-                  <th>{producto.titulo}</th>
+                  <th >{producto.titulo}</th>
                   <td>{producto.descripcion}</td>
                   <td>{producto.precio}</td>
                   <td>{producto.calificacion}</td>
