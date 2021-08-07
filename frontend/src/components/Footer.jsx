@@ -3,11 +3,11 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-      <div class="footer-clean bg-dark text-light">
+      <div className="footer-clean bg-dark text-light">
         <footer>
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-5 item">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-5 item">
                 <h3>Services</h3>
                 <ul>
                   <li>
@@ -18,7 +18,7 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div class="col-5 item">
+              <div className="col-5 item">
                 <h3>Conocenos</h3>
                 <ul>
                   <li>
@@ -26,15 +26,15 @@ const Footer = () => {
                   </li>
                 </ul>
               </div>
-              <div class="col-2 item social">
+              <div className="col-2 item social">
                 <a
                   href="https://github.com/Ciclo4-MinTIC/Poke-Shop"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <i class="icon ion-social-github"></i>
+                  <i className="icon ion-social-github"></i>
                 </a>
-                <p class="copyright">Poke-shop © 2021</p>
+                <p className="copyright">Poke-shop © 2021</p>
               </div>
             </div>
           </div>

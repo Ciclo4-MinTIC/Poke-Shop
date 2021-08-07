@@ -92,42 +92,42 @@ const Productos = () => {
               <div className="row">
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Título</label>
+                    <label htmlFor="" className="mb-3">Título</label>
                     <input
                       onChange={(e) => {
                         setTitulo(e.target.value)
                       }}
                       value={titulo}
                       type="text"
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     />
                   </div>
                   <span className="text-danger">{errors.titulo}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Habilidad</label>
+                    <label htmlFor="" className="mb-3">Habilidad</label>
                     <input
                       onChange={(e) => {
                         setHabilidad(e.target.value)
                       }}
                       value={habilidad}
                       type="text"
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     />
                   </div>
                   <span className="text-danger">{errors.habilidad}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Tipo</label>
+                    <label htmlFor="" className="mb-3">Tipo</label>
                     <input
                       onChange={(e) => {
                         setTipo(e.target.value)
                       }}
                       value={tipo}
                       type="text"
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     />
                   </div>
                   <span className="text-danger">{errors.tipo}</span>
@@ -136,7 +136,7 @@ const Productos = () => {
               <div className="row">
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Descripción</label>
+                    <label htmlFor="" className="mb-3">Descripción</label>
                     <textarea
                       onChange={(e) => {
                         setDescripcion(e.target.value)
@@ -145,7 +145,7 @@ const Productos = () => {
                       type="text"
                       name=""
                       id=""
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     ></textarea>
                     <span className="text-danger">{errors.descripcion}</span>
                   </div>
@@ -154,42 +154,42 @@ const Productos = () => {
               <div className="row">
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Altura</label>
+                    <label htmlFor="" className="mb-3">Altura</label>
                     <input
                       onChange={(e) => {
                         setAltura(e.target.value)
                       }}
                       value={altura}
                       type="text"
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     />
                   </div>
                   <span className="text-danger">{errors.altura}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Precio</label>
+                    <label htmlFor="" className="mb-3">Precio</label>
                     <input
                       onChange={(e) => {
                         setPrecio(e.target.value)
                       }}
                       value={precio}
                       type="text"
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     />
                   </div>
                   <span className="text-danger">{errors.precio}</span>
                 </div>
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Calificación</label>
+                    <label htmlFor="" className="mb-3">Calificación</label>
                     <input
                       onChange={(e) => {
                         setCalificacion(e.target.value)
                       }}
                       value={calificacion}
                       type="text"
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     />
                   </div>
                   <span className="text-danger">{errors.calificacion}</span>
@@ -198,14 +198,14 @@ const Productos = () => {
               <div className="row">
                 <div className="col">
                   <div className="form-group mb-2">
-                    <label htmlFor="">Imágen</label>
+                    <label htmlFor="" className="mb-3">Imágen</label>
                     <input
                       onChange={(e) => {
                         setImagen(e.target.value)
                       }}
                       value={imagen}
                       type="text"
-                      className="form-control bg-transparent"
+                      className="form-control bg-transparent text-light"
                     />
                   </div>
                   <span className="text-danger">{errors.imagen}</span>
