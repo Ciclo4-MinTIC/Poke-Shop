@@ -1,15 +1,29 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Access from "./Access";
 import setAuthToken from "../utils/setAuthToken.js";
+import jwt_decode from "jwt-decode";
 
-const navbar = () => {
 
+const Navbar = () => {
+const [decode,setDecode]= useState({})
   const logout = (e) => {
     e.preventDefault()
     // Remove auth header for future requests
     localStorage.removeItem("jwtToken");
     setAuthToken(false);
     window.location.href = '/'
+  }
+  const validate = () => {
+    
+    if (localStorage.jwtToken!=null)
+    {
+      const decodeToken=localStorage.getItem("jwtToken")
+      setDecode(jwt_decode(decodeToken))
+
+    }
+    else{
+      setDecode(null)
+    }
   }
 
   return (
@@ -37,6 +51,21 @@ const navbar = () => {
                   Catálogo
                 </a>
               </li>
+             {
+               (decode.roll==="Administrador")?
+              
+                <li className="nav-item">
+                <a className="nav-link" href="/catalogo">
+                  Catálogo
+                </a>
+              </li>
+              :
+              <li className="nav-item">
+                
+              </li>
+
+               
+             }
               <li className="nav-item">
                 <a className="nav-link" href="/">
                   ¿Quienes somos?
@@ -72,4 +101,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
