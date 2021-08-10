@@ -1,8 +1,9 @@
 import React from "react";
 import Access from "./Access";
 import setAuthToken from "../utils/setAuthToken.js";
+import jwt_decode from "jwt-decode";
 
-const navbar = () => {
+const Navbar = () => {
 
   const logout = (e) => {
     e.preventDefault()
@@ -37,6 +38,19 @@ const navbar = () => {
                   Catálogo
                 </a>
               </li>
+              {
+                (localStorage.jwtToken != null)?
+                  (jwt_decode(localStorage.jwtToken).roll === "Administrador")? 
+                    <li className="nav-item">
+                      <a className="nav-link" href="/admin/productos">
+                        Productos
+                      </a>
+                    </li>
+                    :
+                    false
+                  :
+                  false
+              }
               <li className="nav-item">
                 <a className="nav-link" href="/">
                   ¿Quienes somos?
@@ -72,4 +86,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;

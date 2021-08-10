@@ -3,7 +3,7 @@ import axios from 'axios'
 import './catalogos.css'
 import swal from 'sweetalert'
 
-const Productos = () => {
+const Productos = ({roll}) => {
   const [listaProductos, setLista] = useState([])
 
   useEffect(() => {
@@ -222,7 +222,7 @@ const Productos = () => {
         </div>
 
         <hr />
-        <table className="table  bg-dark text-light">
+        <table className="table table-bordered align-middle bg-dark text-light">
           <thead>
             <tr>
               <th scope="col">Imágen</th>
@@ -239,7 +239,7 @@ const Productos = () => {
           <tbody>
             {listaProductos.map((producto) => (
               <tr key={producto._id}>
-                <td className="d-flex justify-content-center">
+                <td>
                   <img
                     className="imagen-miniatura img-fluid"
                     src={producto.imagen}
