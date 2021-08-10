@@ -1,16 +1,26 @@
 import React from "react";
 import Access from "./Access";
+import setAuthToken from "../utils/setAuthToken.js";
 
 const navbar = () => {
+
+  const logout = (e) => {
+    e.preventDefault()
+    // Remove auth header for future requests
+    localStorage.removeItem("jwtToken");
+    setAuthToken(false);
+    window.location.href = '/'
+  }
+
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="/">
             Poke Shop
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -18,29 +28,42 @@ const navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="/catalogo">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link" href="/catalogo">
                   Catálogo
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/">
+              <li className="nav-item">
+                <a className="nav-link" href="/">
                   ¿Quienes somos?
                 </a>
               </li>
             </ul>
-              <button
-                type="button"
-                className="btn btn-warning text-light"
-                data-bs-toggle="modal"
-                data-bs-target="#accessModal"
-              >
-                Acceso
-              </button>
+            {
+                localStorage.jwtToken != null ? (
+                    <button
+                      type="button"
+                      className="btn btn-warning text-light"
+                      onClick={logout}
+                    >
+                      LogOut
+                    </button>
+                ) : (
+                    <button
+                      type="button"
+                      className="btn btn-warning text-light"
+                      data-bs-toggle="modal"
+                      data-bs-target="#accessModal"
+                    >
+                      Acceso
+                    </button>
+                )
+            
+            }
           </div>
         </div>
       </nav>

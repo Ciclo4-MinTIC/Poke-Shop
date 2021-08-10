@@ -1,30 +1,33 @@
 import React from "react";
 import Catalogos from "./components/Catalogos";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import VistaProducto from "./components/VistaProducto";
+import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/Navbar.jsx";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./components/Home.jsx";
+import Producto from "./components/productos";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar></Navbar>
       <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/catalogo">
-            <Catalogos />
-          </Route>          
-        </Switch>
-      </Router>
-
-      <VistaProducto></VistaProducto>
-    </div>
+        <div className="App">
+          <Navbar></Navbar>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/catalogo">
+              <Catalogos/>
+            </Route>   
+            <Route path="/admin/productos">
+              <Producto />
+            </Route>        
+          </Switch>
+          <Footer/>
+        </div>
+    </Router>
   );
 }
 

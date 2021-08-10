@@ -1,34 +1,38 @@
-let mongoose = require('mongoose'),
 express = require('express'),
 router = express.Router();
-
-// Student Model
+// Producto Model
 let producto = require('../models/producto');
+// Validation
+let productoValidate = require('../validation/producto')
 
-// CREATE Student
-router.route('/create').post((req, res, next) => {
-    producto.create(req.body, (error, data) => {
+// Crear Producto
+router.route('/producto/create').post((req, res, next) => {
+    // Form validation
+    const { errors, isValid } = productoValidate(req.body);
+
+    if (!isValid) {
+        return res.json({guardado:false,errors});
+    } else {
+      producto.create(req.body, (error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            console.log(data)
+            res.json({guardado:true,data})
+        }
+      })
+    }
+});
+
+// Get Productos 
+router.route('/productos').get((req, res) => {
+  producto.find((error, data) => {
     if (error) {
         return next(error)
     } else {
-        console.log(data)
         res.json(data)
     }
-})
-});
-
-// READ Students
-router.route('/').get((req, res) => {
-//   studentSchema.find((error, data) => {
-//     if (error) {
-//         return next(error)
-//     } else {
-//         res.json(data)
-//     }
-//   })
-    res.json({
-        "estado": "Si sirve"
-    })
+  })
 })
 
 // Get Single Student
