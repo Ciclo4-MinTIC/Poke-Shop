@@ -108,11 +108,7 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
                 </div>
               </div>
           </div>
-
-          
-          
         </div>
-        
       </div>
     </div>
   );
