@@ -56,7 +56,6 @@ router.route('/producto/edit').put((req, res, next) => {
 
 // Delete Student
 router.route('/producto/delete/:id').delete((req, res, next) => {
-  console.log(req.params.id)
   producto.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
         return next(error);

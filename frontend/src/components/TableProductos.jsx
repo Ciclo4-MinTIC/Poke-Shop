@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import swal from 'sweetalert'
 import axios from 'axios'
+import ModalEditar from './ModalEditar'
 
 const TableProductos = () => {
     const [listaProductos, setLista] = useState([])
@@ -63,7 +64,7 @@ const TableProductos = () => {
                             <td>{producto.altura}</td>
                             <td>{producto.tipo}</td>
                             <td>
-                                <button className="btn btn-outline-warning">Editar</button>{' '}
+                                <ModalEditar producto={producto}></ModalEditar>
                                 <button className="btn btn-outline-danger" onClick={(e) => deleteProduct(e, producto._id)}>Eliminar</button>
                             </td>
                         </tr>

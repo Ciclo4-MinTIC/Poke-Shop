@@ -12,7 +12,8 @@ const accessRoute = require('./router/acceso.js')
 mongoose.Promise = global.Promise;
 mongoose.connect(dbConfig.db, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: false
 }).then(() => {
   console.log('Database sucessfully connected!')
 },
