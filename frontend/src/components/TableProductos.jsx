@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import swal from 'sweetalert'
 import axios from 'axios'
 
-const TableProductos = (props) => {
+const TableProductos = () => {
     const [listaProductos, setLista] = useState([])
 
 
@@ -17,11 +17,11 @@ const TableProductos = (props) => {
         })
     }, [])
 
-    const deleteProduct = (e) => {
+    const deleteProduct = (e, id) => {
         
         e.preventDefault();
 
-        axios.delete('http://localhost:4000/producto/delete')
+        axios.delete('http://localhost:4000/catalogo/producto/delete/' + id)
         .then((res) => {
             swal('Pokémon eliminado', 'El pokémon fue eliminado de la tienda', 'success')
             window.location.href = "./productos"
@@ -47,26 +47,26 @@ const TableProductos = (props) => {
                 </thead>
                 <tbody>
                     {listaProductos.map((producto) => (
-                    <tr key={producto._id}>
-                        <td>
-                        <img
-                            className="imagen-miniatura img-fluid"
-                            src={producto.imagen}
-                            alt=""
-                        />
-                        </td>
-                        <th>{producto.titulo}</th>
-                        <td>{producto.descripcion}</td>
-                        <td>{producto.precio}</td>
-                        <td>{producto.calificacion}</td>
-                        <td>{producto.habilidad}</td>
-                        <td>{producto.altura}</td>
-                        <td>{producto.tipo}</td>
-                        <td>
-                        <button className="btn btn-outline-warning">Editar</button>{' '}
-                        <button className="btn btn-outline-danger" onClick={deleteProduct}>Eliminar</button>
-                        </td>
-                    </tr>
+                        <tr key={producto._id}>
+                            <td>
+                            <img
+                                className="imagen-miniatura img-fluid"
+                                src={producto.imagen}
+                                alt="imagen"
+                            />
+                            </td>
+                            <th>{producto.titulo}</th>
+                            <td>{producto.descripcion}</td>
+                            <td>{producto.precio}</td>
+                            <td>{producto.calificacion}</td>
+                            <td>{producto.habilidad}</td>
+                            <td>{producto.altura}</td>
+                            <td>{producto.tipo}</td>
+                            <td>
+                                <button className="btn btn-outline-warning">Editar</button>{' '}
+                                <button className="btn btn-outline-danger" onClick={(e) => deleteProduct(e, producto._id)}>Eliminar</button>
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>

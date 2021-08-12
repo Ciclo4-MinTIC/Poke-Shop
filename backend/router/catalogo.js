@@ -35,14 +35,14 @@ router.route('/productos').get((req, res) => {
 })
 
 // Update Student
-router.route('producto/edit').put((req, res, next) => {
+router.route('/producto/edit').put((req, res, next) => {
 
   const { errors, isValid } = productoValidate(req.body);
 
     if (!isValid) {
         return res.json({editado:false,errors});
     } else {
-      studentSchema.findByIdAndUpdate(req.params.id, {
+      producto.findByIdAndUpdate(req.params.id, {
         $set: req.body
       }, (error, data) => {
         if (error) {
@@ -55,8 +55,9 @@ router.route('producto/edit').put((req, res, next) => {
 })
 
 // Delete Student
-router.route('producto/delete').delete((req, res, next) => {
-  studentSchema.findByIdAndRemove(req.body.id, (error, data) => {
+router.route('/producto/delete/:id').delete((req, res, next) => {
+  console.log(req.params.id)
+  producto.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
         return next(error);
     } else {
