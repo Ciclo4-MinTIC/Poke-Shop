@@ -12,21 +12,11 @@ const ModalEditar = ({producto}) => {
     const [tipo, setTipo] = useState(producto.tipo)
     const [habilidad, setHabilidad] = useState(producto.habilidad)
     const [altura, setAltura] = useState(producto.altura)
-    const [errors, setErrors] = useState({
-        titulo: "",
-        descripcion: "",
-        imagen: "",
-        precio: "",
-        calificacion: "",
-        tipo: "",
-        habilidad: "",
-        altura: "",
-    })
 
-    const validate = (e) => {
+    const validate = (e, id) => {
         e.preventDefault()
     
-        const newProducto = {
+        const producto = {
             titulo: titulo,
             descripcion: descripcion,
             imagen: imagen,
@@ -37,17 +27,12 @@ const ModalEditar = ({producto}) => {
             altura: altura,
         }
     
-        axios
-            .post('http://localhost:4000/catalogo/producto/create', newProducto)
-            .then((res) => {
-                if (res.data.guardado) {
-                swal('Pokémon guardado', 'El registro del pokémon fue exitoso', 'success')
-                window.location.href = "./admin/productos"
-                } else {
-                setErrors(res.data.errors)
-                }
-            })
-            .catch((e) => console.log('No sirvio', e))
+        axios.put('http://localhost:4000/catalogo/producto/edit/' + id, producto)
+        .then((res) => {
+            swal('Pokémon editado', 'El pokémon fue editado con exito', 'success')
+            window.location.href = "./productos"
+        })
+        .catch((e) => console.log('No sirvio', e))
     }
 
     return (
@@ -99,7 +84,6 @@ const ModalEditar = ({producto}) => {
                                     className="form-control bg-transparent text-light"
                                     />
                                 </div>
-                                <span className="text-danger">{errors.titulo}</span>
                                 </div>
                                 <div className="col">
                                 <div className="form-group mb-2">
@@ -113,7 +97,6 @@ const ModalEditar = ({producto}) => {
                                     className="form-control bg-transparent text-light"
                                     />
                                 </div>
-                                <span className="text-danger">{errors.habilidad}</span>
                                 </div>
                                 <div className="col">
                                 <div className="form-group mb-2">
@@ -127,7 +110,6 @@ const ModalEditar = ({producto}) => {
                                     className="form-control bg-transparent text-light"
                                     />
                                 </div>
-                                <span className="text-danger">{errors.tipo}</span>
                                 </div>
                             </div>
                             <div className="row">
@@ -144,7 +126,6 @@ const ModalEditar = ({producto}) => {
                                     id=""
                                     className="form-control bg-transparent text-light"
                                     ></textarea>
-                                    <span className="text-danger">{errors.descripcion}</span>
                                 </div>
                                 </div>
                             </div>
@@ -161,7 +142,6 @@ const ModalEditar = ({producto}) => {
                                     className="form-control bg-transparent text-light"
                                     />
                                 </div>
-                                <span className="text-danger">{errors.altura}</span>
                                 </div>
                                 <div className="col">
                                 <div className="form-group mb-2">
@@ -175,7 +155,6 @@ const ModalEditar = ({producto}) => {
                                     className="form-control bg-transparent text-light"
                                     />
                                 </div>
-                                <span className="text-danger">{errors.precio}</span>
                                 </div>
                                 <div className="col">
                                 <div className="form-group mb-2">
@@ -189,7 +168,6 @@ const ModalEditar = ({producto}) => {
                                     className="form-control bg-transparent text-light"
                                     />
                                 </div>
-                                <span className="text-danger">{errors.calificacion}</span>
                                 </div>
                             </div>
                             <div className="row">
@@ -205,26 +183,16 @@ const ModalEditar = ({producto}) => {
                                     className="form-control bg-transparent text-light"
                                     />
                                 </div>
-                                <span className="text-danger">{errors.imagen}</span>
                                 </div>
-                            </div>
-                            <hr />
-                            <div className="d-flex justify-content-center">
-                                <button className="btn btn-outline-warning" onClick={validate}>
-                                    Guardar Cambios
-                                </button>
                             </div>
                             </form>
                         </div>
                     </div>
-                    <div className="modal-footer">
-                        <button
-                        type="button"
-                        className="btn btn-warning"
-                        data-bs-dismiss="modal"
-                        >
-                        Cerrar
-                        </button>
+                    <div className="modal-footer d-flex justify-content-center">
+                            <button className="btn btn-outline-warning" onClick={(e) => validate(e, producto._id)}>
+                                Guardar Cambios
+                            </button>
+                        
                     </div>
                     </div>
                 </div>

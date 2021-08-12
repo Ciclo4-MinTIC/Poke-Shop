@@ -44,7 +44,7 @@ const Productos = () => {
       .then((res) => {
         if (res.data.guardado) {
           swal('Pokémon guardado', 'El registro del pokémon fue exitoso', 'success')
-          window.location.href = "./admin/productos"
+          window.location.href = "./productos"
         } else {
           setErrors(res.data.errors)
         }

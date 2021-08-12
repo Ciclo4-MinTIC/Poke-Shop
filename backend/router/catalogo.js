@@ -35,23 +35,18 @@ router.route('/productos').get((req, res) => {
 })
 
 // Update Student
-router.route('/producto/edit').put((req, res, next) => {
+router.route('/producto/edit/:id').put((req, res, next) => {
 
-  const { errors, isValid } = productoValidate(req.body);
-
-    if (!isValid) {
-        return res.json({editado:false,errors});
-    } else {
       producto.findByIdAndUpdate(req.params.id, {
         $set: req.body
       }, (error, data) => {
         if (error) {
           return next(error);
         } else {
-          res.json({editado:true,data})
+          res.json(data)
         }
       })
-    }
+    
 })
 
 // Delete Student
