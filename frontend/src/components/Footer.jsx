@@ -22,7 +22,7 @@ const Footer = () => {
                 <h3>Conocenos</h3>
                 <ul>
                   <li>
-                    <a href="#">¿Quienes somos?</a>
+                    <a href="/">¿Quienes somos?</a>
                   </li>
                 </ul>
               </div>

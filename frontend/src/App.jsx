@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home.jsx";
-import Producto from "./components/productos";
+import Dashboard from "./components/dashboard";
+import QuienesSomos from "./components/QuienesSomos";
 
 function App() {
   return (
@@ -18,11 +19,14 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
-            <Route path="/catalogo">
+            <Route exact path="/catalogo">
               <Catalogos/>
             </Route>   
-            <Route path="/admin/productos">
-              <Producto />
+            <Route exact path="/about">
+              <QuienesSomos/>
+            </Route>   
+            <Route exact path="/admin/productos">
+              <Dashboard />
             </Route>        
           </Switch>
           <Footer/>

@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import './catalogos.css'
 import swal from 'sweetalert'
+import TableProductos from './TableProductos'
 
 const Productos = () => {
-  const [listaProductos, setLista] = useState([])
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:4000/catalogo/productos')
-      .then((res) => {
-        setLista(res.data)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }, [])
 
   const [titulo, setTitulo] = useState("")
   const [descripcion, setDescripcion] = useState("")
@@ -54,15 +43,8 @@ const Productos = () => {
       .post('http://localhost:4000/catalogo/producto/create', newProducto)
       .then((res) => {
         if (res.data.guardado) {
-          swal('Pokémon guardado', 'El registro del pokémon', 'success')
-          setTitulo("")
-          setDescripcion("")
-          setImagen("")
-          setPrecio("")
-          setCalificacion("")
-          setTipo("")
-          setHabilidad("")
-          setAltura("")
+          swal('Pokémon guardado', 'El registro del pokémon fue exitoso', 'success')
+          window.location.href = "./productos"
         } else {
           setErrors(res.data.errors)
         }
@@ -222,45 +204,9 @@ const Productos = () => {
         </div>
 
         <hr />
-        <table className="table  bg-dark text-light">
-          <thead>
-            <tr>
-              <th scope="col">Imágen</th>
-              <th scope="col">Título</th>
-              <th scope="col">Descripción</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Calificación</th>
-              <th scope="col">Habilidad</th>
-              <th scope="col">Altura</th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {listaProductos.map((producto) => (
-              <tr key={producto._id}>
-                <td className="d-flex justify-content-center">
-                  <img
-                    className="imagen-miniatura img-fluid"
-                    src={producto.imagen}
-                    alt=""
-                  />
-                </td>
-                <th>{producto.titulo}</th>
-                <td>{producto.descripcion}</td>
-                <td>{producto.precio}</td>
-                <td>{producto.calificacion}</td>
-                <td>{producto.habilidad}</td>
-                <td>{producto.altura}</td>
-                <td>{producto.tipo}</td>
-                <td>
-                  <button className="btn btn-outline-warning">Editar</button>{' '}
-                  <button className="btn btn-outline-danger">Eliminar</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        
+        <TableProductos></TableProductos>
+
       </div>
     </div>
   )

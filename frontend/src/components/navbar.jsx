@@ -1,11 +1,11 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 import Access from "./Access";
 import setAuthToken from "../utils/setAuthToken.js";
 import jwt_decode from "jwt-decode";
 
 
 const Navbar = () => {
-const [decode,setDecode]= useState({})
+
   const logout = (e) => {
     e.preventDefault()
     // Remove auth header for future requests
@@ -13,18 +13,7 @@ const [decode,setDecode]= useState({})
     setAuthToken(false);
     window.location.href = '/'
   }
-  const validate = () => {
-    
-    if (localStorage.jwtToken!=null)
-    {
-      const decodeToken=localStorage.getItem("jwtToken")
-      setDecode(jwt_decode(decodeToken))
 
-    }
-    else{
-      setDecode(null)
-    }
-  }
 
   return (
     <div>
@@ -51,23 +40,21 @@ const [decode,setDecode]= useState({})
                   Catálogo
                 </a>
               </li>
-             {
-               (decode.roll==="Administrador")?
-              
-                <li className="nav-item">
-                <a className="nav-link" href="/catalogo">
-                  Catálogo
-                </a>
-              </li>
-              :
+              {
+                (localStorage.jwtToken != null)?
+                  (jwt_decode(localStorage.jwtToken).roll === "Administrador")? 
+                    <li className="nav-item">
+                      <a className="nav-link" href="/admin/productos">
+                        Productos
+                      </a>
+                    </li>
+                    :
+                    false
+                  :
+                  false
+              }
               <li className="nav-item">
-                
-              </li>
-
-               
-             }
-              <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/about">
                   ¿Quienes somos?
                 </a>
               </li>

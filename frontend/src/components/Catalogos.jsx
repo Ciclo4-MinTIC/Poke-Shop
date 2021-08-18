@@ -12,13 +12,16 @@ const Catalogos = () => {
     const [listaProductos, setLista] = useState([]);
 
     useEffect (() =>  {
-        axios.get('http://localhost:4000/catalogo/productos')
-        .then(res => {
-            setLista(res.data)
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        if(localStorage.jwtToken != null){
+            axios.get('http://localhost:4000/catalogo/productos')
+            .then(res => {
+                setLista(res.data)
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        }
+        
     }, [])
     
     return (
