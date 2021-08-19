@@ -1,0 +1,119 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #161623;
+    min-height: 100vh;
+} */
+
+.contenedor{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 40px 0; 
+}
+
+.contenedor .card{
+    position: relative;
+    width: 260px;
+    height: 400px;
+    background: rgba(255,255, 255, 0.06);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px) saturate(180%);
+}
+
+.contenedor .card .content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.7;
+    transition: .5s;
+}
+
+.contenedor .card:hover .content {
+    opacity: 1;
+    transition: .5s;
+}
+
+.contenedor .card .sci{
+    position: absolute;
+    bottom: 50px;
+    padding-left:0;
+    display: flex;
+}
+
+.contenedor .card .sci li{
+    list-style: none;
+    margin: 0 10px;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: .5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.contenedor .card:hover .sci li{
+    transform: translateY(20px);
+    opacity: 1;
+}
+
+.contenedor .card .sci li a{
+    color: #fff;
+    font-size: 24px;
+}
+
+.contenedor .card:hover .content{
+    opacity: 1;
+}
+
+.contenedor .card .content h3 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0 10px;
+    line-height: 1.1em;
+}
+
+.contenedor .card:hover .content h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.contenedor .card .content .contentBX span{
+    color: #fff;
+    text-transform: initial;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.contenedor .card .content .imgBX{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(0, 0, 0, 0.25)
+}
+
+.contenedor .card .content .imgBX img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

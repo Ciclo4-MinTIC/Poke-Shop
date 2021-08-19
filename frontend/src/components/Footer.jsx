@@ -22,7 +22,7 @@ const Footer = () => {
                 <h3>Conocenos</h3>
                 <ul>
                   <li>
-                    <a href="/">¿Quienes somos?</a>
+                    <a href="/about">¿Quienes somos?</a>
                   </li>
                 </ul>
               </div>
@@ -32,7 +32,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <i className="icon ion-social-github"></i>
+                  <i className="fab fa-github"></i>
                 </a>
                 <p className="copyright">Poke-shop © 2021</p>
               </div>

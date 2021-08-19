@@ -52,7 +52,7 @@ const Navbar = () => {
                   false
               }
               <li className="nav-item">
-                <a className="nav-link" href="/">
+                <a className="nav-link" href="/about">
                   ¿Quienes somos?
                 </a>
               </li>

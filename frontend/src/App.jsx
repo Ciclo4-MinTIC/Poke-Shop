@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home.jsx";
+import QuienesSomos from "./components/QuienesSomos.jsx";
 import Dashboard from "./components/dashboard";
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route exact path="/catalogo">
               <Catalogos/>
+            </Route> 
+            <Route exact path="/about">
+              <QuienesSomos></QuienesSomos>
             </Route>   
             <Route exact path="/admin/productos">
               <Dashboard />
