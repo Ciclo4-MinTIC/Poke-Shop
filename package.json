@@ -1,0 +1,19 @@
+{
+  "name": "poke-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ciclo4-MinTIC/Poke-Shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ciclo4-MinTIC/Poke-Shop/issues"
+  },
+  "homepage": "https://github.com/Ciclo4-MinTIC/Poke-Shop#readme"
+}
