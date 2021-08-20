@@ -42,7 +42,7 @@ const ModalEditar = ({producto}) => {
             type="button"
             className="btn btn-outline-warning"
             data-bs-toggle="modal"
-            data-bs-target={'#'+ producto.titulo}
+            data-bs-target={'#producto-'+ producto._id}
             >
                 Editar
             </button>
@@ -50,7 +50,7 @@ const ModalEditar = ({producto}) => {
           {/* Modal */}
             <div
             className="modal fade"
-            id={producto.titulo}
+            id={'producto-'+ producto._id}
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"

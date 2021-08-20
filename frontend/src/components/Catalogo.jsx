@@ -28,7 +28,7 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
             type="button"
             className="btn btn-outline-warning btn-sm"
             data-bs-toggle="modal"
-            data-bs-target={'#'+informacion.titulo}
+            data-bs-target={'#producto-'+informacion._id}
           >
             Visualización del producto
           </button>
@@ -36,7 +36,7 @@ const Catalogo = ({title, imageSource, text, informacion}) => {
           {/* Modal */}
           <div
             className="modal fade"
-            id={informacion.titulo}
+            id={"producto-"+informacion._id}
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
